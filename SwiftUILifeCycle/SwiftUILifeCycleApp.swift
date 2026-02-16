@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct SwiftUILifeCycleApp: App {
+    @State private var appState = AppStateStore()
+    
+    init () {
+        print("App init")
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+                .environment(appState)
         }
     }
 }
