@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ThridView: View {
+struct SecondChildView: View {
     @State private var anotherManager = AnotherManager()
     @State private var fetchedData: String?
     
@@ -17,13 +17,13 @@ struct ThridView: View {
     private var networkManager = NetworkManager()
     
     init() {
-        print("Third View: init")
+        print("DEBUG: SecondChildView: init")
     }
     
     var body: some View {
-        let _ = print("Third View: body")
+        let _ = print("DEBUG: SecondChildView: body")
         VStack {
-            Text("Thrid View")
+            Text("SecondChildView")
                 .font(.largeTitle)
             
             Text(anotherManager.text)
@@ -46,19 +46,19 @@ struct ThridView: View {
 
         }
         .task {
-            print("Third View: task")
+            print("DEBUG: SecondChildView: task")
             fetchedData = await  networkManager.fetchData()
         }
         .onAppear {
-            print("Third View: onAppear")
+            print("DEBUG: SecondChildView: onAppear")
         }
         .onDisappear {
-            print("Third View: onDisappear")
+            print("DEBUG: SecondChildView: onDisappear")
         }
     }
 }
 
 #Preview {
-    ThridView()
+    SecondChildView()
         .environment(AppStateStore())
 }

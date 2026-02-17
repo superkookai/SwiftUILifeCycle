@@ -7,38 +7,38 @@
 
 import SwiftUI
 
-struct NavigateView: View {
+struct ThirdChildView: View {
     
     
     init() {
-        print("NavigateView: init")
+        print("DEBUG: ThirdChildView: init")
     }
     
     var body: some View {
-        let _ = print("NavigateView: body")
+        let _ = print("DEBUG: ThirdChildView: body")
         NavigationLink(destination: {
-            AnotherNavigateView()
+            ThirdNextChildView()
         }, label: {
-            Text("To Another Navigation View")
+            Text("To Next Child View")
                 .padding(5)
         })
         .buttonStyle(.borderedProminent)
         .tint(.pink)
         .task {
-            print("NavigateView: task")
+            print("DEBUG: ThirdChildView: task")
         }
         .onAppear {
-            print("NavigateView: onAppear")
+            print("DEBUG: ThirdChildView: onAppear")
         }
         .onDisappear {
-            print("NavigateView: onDisappear")
+            print("DEBUG: ThirdChildView: onDisappear")
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        NavigateView()
+        ThirdChildView()
             .environment(AppStateStore())
     }
 }

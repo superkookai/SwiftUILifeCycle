@@ -9,9 +9,9 @@ import Foundation
 
 @Observable
 class AppStateStore {
-    var text: String = "Hello, World!"
+    var text: String = "AppStateStore"
     
     init () {
-        print("AppStateStore init")
+        print("DEBUG: AppStateStore init")
     }
 }

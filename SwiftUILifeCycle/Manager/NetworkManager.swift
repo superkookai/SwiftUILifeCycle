@@ -9,7 +9,7 @@ import Foundation
 
 class NetworkManager {
     init() {
-        print("Network Manager: init")
+        print("DEBUG: Network Manager: init")
     }
     
     func fetchData() async -> String {

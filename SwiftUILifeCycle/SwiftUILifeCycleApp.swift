@@ -12,7 +12,7 @@ struct SwiftUILifeCycleApp: App {
     @State private var appState = AppStateStore()
     
     init () {
-        print("App init")
+        print("DEBUG: App init")
     }
     
     var body: some Scene {

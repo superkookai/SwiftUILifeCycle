@@ -9,10 +9,10 @@ import SwiftUI
 
 struct MainTabView: View {
     init () {
-        print("MainTabView: init")
+        print("DEBUG: MainTabView: init")
     }
     var body: some View {
-        let _ = print("MainTabView: body")
+        let _ = print("DEBUG: MainTabView: body")
         TabView {
             Tab("First", systemImage: "1.circle") {
                 FirstTabView()
@@ -27,13 +27,13 @@ struct MainTabView: View {
             }
         }
         .task {
-            print("MainTabView: task")
+            print("DEBUG: MainTabView: task")
         }
         .onAppear {
-            print("MainTabView: onAppear")
+            print("DEBUG: MainTabView: onAppear")
         }
         .onDisappear {
-            print("MainTabView: onDisappear")
+            print("DEBUG: MainTabView: onDisappear")
         }
     }
 }

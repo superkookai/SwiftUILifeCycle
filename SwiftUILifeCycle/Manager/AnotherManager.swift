@@ -9,9 +9,9 @@ import Foundation
 
 @Observable
 class AnotherManager {
-    var text: String = "Another World!!"
+    var text: String = "AnotherManager Text"
     
     init() {
-        print("AnotherManager init")
+        print("DEBUG: AnotherManager init")
     }
 }

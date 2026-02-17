@@ -9,29 +9,29 @@ import SwiftUI
 
 struct ThirdTabView: View {
     init() {
-        print("ThirdTabView: init")
+        print("DEBUG: ThirdTabView: init")
     }
     
     var body: some View {
-        let _ = print("ThirdTabView: body")
+        let _ = print("DEBUG: ThirdTabView: body")
         NavigationStack {
             NavigationLink {
-                NavigateView()
+                ThirdChildView()
             } label: {
-                Text("To Navigated View")
+                Text("To Third Child View")
                     .padding(5)
             }
             .buttonStyle(.borderedProminent)
-            .navigationBarTitle("Third Tab")
+            .navigationBarTitle("ThirdTabView")
         }
         .task {
-            print("ThirdTabView: task")
+            print("DEBUG: ThirdTabView: task")
         }
         .onAppear {
-            print("ThirdTabView: onAppear")
+            print("DEBUG: ThirdTabView: onAppear")
         }
         .onDisappear {
-            print("ThirdTabView: onDisappear")
+            print("DEBUG: ThirdTabView: onDisappear")
         }
     }
 }

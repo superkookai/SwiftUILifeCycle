@@ -14,13 +14,13 @@ struct FirstTabView: View {
     @Environment(AppStateStore.self) private var appStateStore
     
     init () {
-        print("Main View: init")
+        print("DEBUG: FirstTabView: init")
     }
     
     var body: some View {
-        let _ = print("Main View: body")
+        let _ = print("DEBUG: FirstTabView: body")
         VStack {
-            Text("Main View")
+            Text("FirstTabView")
                 .font(.largeTitle)
             
             Text("Counter: \(counter)")
@@ -32,7 +32,7 @@ struct FirstTabView: View {
             
             Button {
                 counter += 1
-                print("Main View: Increase Counter Button")
+                print("DEBUG: FirstTabView: Increase Counter Button")
             } label: {
                 Text("Increase Counter")
                     .padding(8)
@@ -42,29 +42,28 @@ struct FirstTabView: View {
             
             Button {
                 isPresented = true
-                print("Main View: isPresented Button")
+                print("DEBUG: FirstTabView: isPresented Button")
             } label: {
-                Text("Show Second View")
+                Text("Show First Child View")
                     .padding(8)
             }
             .buttonStyle(.borderedProminent)
 
         }
         .fullScreenCover(isPresented: $isPresented, content: {
-//            SecondView(counter: $counter)
-            SecondView()
+            FirstChildView()
         })
         .task {
-            print("Main View: task")
+            print("DEBUG: FirstTabView: task")
         }
         .onAppear {
-            print("Main View: onAppear")
+            print("DEBUG: FirstTabView: onAppear")
         }
         .onDisappear {
-            print("Main View: onDisappear")
+            print("DEBUG: FirstTabView: onDisappear")
         }
         .onChange(of: counter) { _, newValue in
-            print("Main View: onChange counter: \(newValue)")
+            print("DEBUG: FirstTabView: onChange counter: \(newValue)")
         }
     }
 }

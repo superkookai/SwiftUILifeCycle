@@ -7,25 +7,19 @@
 
 import SwiftUI
 
-struct SecondView: View {
-//    @Binding var counter: Int
+struct FirstChildView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(AppStateStore.self) var appState
     
-//    init(counter: Binding<Int>) {
-//        self._counter = counter
-//        print("Second View: init")
-//    }
-    
     init() {
-        print("Second View: init")
+        print("DEBUG: FirstChildView: init")
     }
     
     var body: some View {
         @Bindable var appState = appState
-        let _ = print("Second View: body")
+        let _ = print("DEBUG: FirstChildView: body")
         VStack {
-            Text("Second View")
+            Text("FirstChildView")
                 .font(.largeTitle)
             
             Group {
@@ -38,28 +32,11 @@ struct SecondView: View {
             .font(.title)
             .foregroundStyle(.teal)
             
-//            Button {
-//                counter += 1
-//            } label: {
-//                Text("Increase Counter")
-//                    .padding(5)
-//            }
-//            .buttonStyle(.borderedProminent)
-            
             TextField("Change Text", text: $appState.text)
                 .padding()
                 .background(.regularMaterial, in: .rect(cornerRadius: 5))
                 .padding(.horizontal)
             
-//            Button {
-//                appState.text = "Changed Text"
-//                print("Second View: Change Text button")
-//            } label: {
-//                Text("Change Text")
-//                    .padding(5)
-//            }
-//            .buttonStyle(.borderedProminent)
-
             
             Button {
                 dismiss()
@@ -72,19 +49,18 @@ struct SecondView: View {
 
         }
         .task {
-            print("Second View: task")
+            print("DEBUG: FirstChildView: task")
         }
         .onAppear {
-            print("Second View: onAppear")
+            print("DEBUG: FirstChildView: onAppear")
         }
         .onDisappear {
-            print("Second View: onDisappear")
+            print("DEBUG: FirstChildView: onDisappear")
         }
     }
 }
 
 #Preview {
-//    SecondView(counter: .constant(0))
-    SecondView()
+    FirstChildView()
         .environment(AppStateStore())
 }

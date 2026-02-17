@@ -11,19 +11,19 @@ struct SecondTabView: View {
     @State private var showThird: Bool = false
     
     init() {
-        print("Second Tab View: init")
+        print("DEBUG: SecondTabView: init")
     }
     
     var body: some View {
-        let _ = print("Second Tab View: body")
+        let _ = print("DEBUG: SecondTabView: body")
         VStack {
-            Text("Second Tab View")
+            Text("SecondTabView")
                 .font(.largeTitle)
             
             Button {
                 showThird = true
             } label: {
-                Text("Show Third View")
+                Text("Show Second Child View")
                     .padding(5)
             }
             .buttonStyle(.borderedProminent)
@@ -31,16 +31,16 @@ struct SecondTabView: View {
             
         }
         .task {
-            print("Second Tab View: task")
+            print("DEBUG: SecondTabView: task")
         }
         .onAppear {
-            print("Second Tab View: onAppear")
+            print("DEBUG: SecondTabView: onAppear")
         }
         .onDisappear {
-            print("Second Tab View: onDisappear")
+            print("DEBUG: SecondTabView: onDisappear")
         }
         .fullScreenCover(isPresented: $showThird) {
-            ThridView()
+            SecondChildView()
         }
     }
 }

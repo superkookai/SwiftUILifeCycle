@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AnotherNavigateView: View {
+struct ThirdNextChildView: View {
     @Environment(AppStateStore.self) var appStateStore
     @State private var anotherManager = AnotherManager()
     
@@ -15,13 +15,13 @@ struct AnotherNavigateView: View {
     private var networkManager = NetworkManager()
     
     init() {
-        print("AnotherNavigateView: init")
+        print("DEBUG: ThirdNextChildView: init")
     }
     
     var body: some View {
-        let _ = print("AnotherNavigateView: body")
+        let _ = print("DEBUG: ThirdNextChildView: body")
         VStack {
-            Text("AnotherNavigateView:")
+            Text("ThirdNextChildView")
                 .font(Font.largeTitle)
             
             Text(anotherManager.text)
@@ -34,19 +34,19 @@ struct AnotherNavigateView: View {
                 .font(.title)
         }
         .task {
-            print("AnotherNavigateView: task")
+            print("DEBUG: ThirdNextChildView: task")
             fetchedText = await networkManager.fetchData()
         }
         .onAppear {
-            print("AnotherNavigateView: onAppear")
+            print("DEBUG: ThirdNextChildView: onAppear")
         }
         .onDisappear {
-            print("AnotherNavigateView: onDisappear")
+            print("DEBUG: ThirdNextChildView: onDisappear")
         }
     }
 }
 
 #Preview {
-    AnotherNavigateView()
+    ThirdNextChildView()
         .environment(AppStateStore())
 }
